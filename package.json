@@ -1,0 +1,46 @@
+{
+  "name": "blox-site",
+  "version": "0.1.0",
+  "description": "Example block scaffolded with Create Block tool.",
+  "author": "The WordPress Contributors",
+  "license": "GPL-2.0-or-later",
+  "main": "build/index.js",
+  "scripts": {
+    "format": "wp-scripts format",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "preview": "npm-run-all --parallel wpstart tailwindwatch sync",
+    "sync": "browser-sync start -p 'localhost:8888/nfpc' --files '**/*.php' '/build/*/*.js' '/build/*/*.css'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "buildwp": "wp-scripts build",
+    "wpstart": "wp-scripts start",
+    "tailwindbuild": "tailwindcss -i ./src/index.scss -o ./build/block.css --postcss --minify --no-source-map",
+    "tailwindwatch": "tailwindcss -i ./src/index.scss -o ./build/block.css --watch --postcss --no-source-map",
+    "build": "npm-run-all --sequential buildwp tailwindbuild",
+    "start": "npm-run-all --parallel wpstart tailwindwatch",
+    "plugin-zip": "wp-scripts plugin-zip",
+    "prod-zip": "npm-run-all --sequential build plugin-zip"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
+    "@wordpress/scripts": "^30.5.1",
+    "autoprefixer": "^10.4.7",
+    "browser-sync": "^2.27.10",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.4.14",
+    "postcss-nested": "^5.0.6",
+    "postcss-scss": "^4.0.9",
+    "tailwindcss": "^3.3.3"
+  },
+  "dependencies": {
+    "@wordpress/api-fetch": "^7.12.0",
+    "@wordpress/blob": "^4.12.0",
+    "@wordpress/block-editor": "^14.7.0",
+    "@wordpress/components": "^28.12.0",
+    "@wordpress/data": "^10.12.0",
+    "@wordpress/element": "^6.12.0",
+    "@wordpress/icons": "^10.12.0",
+    "swiper": "^11.1.12"
+  }
+}

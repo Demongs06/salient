@@ -1,0 +1,25 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/single-solution",
+  "version": "0.1.0",
+  "title": "Single Solution",
+  "category": "widgets",
+  "icon": "embed-photo",
+  "description": "FSPL offers these Sharepoint services, add inside of Sharepoint Services block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "blox-site",
+  "editorScript": "file:./index.js",
+  "editorStyle": [
+    "file:../block.css",
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css",
+    "file:../block.css"
+  ],
+  "viewScript": "file:./view.js"
+}

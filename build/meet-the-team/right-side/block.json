@@ -1,0 +1,26 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/meet-team-right-side",
+  "version": "0.1.0",
+  "title": "Meet Team Right",
+  "category": "widgets",
+  "icon": "embed-photo",
+  "description": "Meet the team right side block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "textdomain": "blox-site",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "editorStyle": [
+    "file:../block.css",
+    "file:./index.css"
+  ],
+  "style": [
+    "file:./style-index.css",
+    "file:../block.css"
+  ],
+  "viewScript": "file:./view.js"
+}

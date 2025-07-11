@@ -1,0 +1,215 @@
+/* Apply the block-class class only when there is a conflict */
+/* Removed this for now as it is becoming difficult to apply responsive classes, the parent class is being considered and the classes are not applying properly */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.text-formatting {
+    @apply text-center md:text-left;
+}
+
+.box-content {
+    @apply md:ml-3;
+}
+
+.wp-block-create-block-item-single {
+    .left-section-item-single {
+        a {
+            @apply text-blue-500/80 no-underline;
+        }
+    }
+}
+
+.block-editor__container img {
+    @apply h-full;
+}
+
+.button-align-center {
+    @apply text-center md:text-center;
+}
+
+.button-align-left {
+    @apply text-center md:text-left;
+}
+
+.button-align-right {
+    @apply text-center md:text-right;
+}
+
+
+
+
+
+
+/* Items Single Hyperlink fix code */
+
+
+.item-inner-box .absolute a {
+    @apply text-orange-600 no-underline;
+}
+
+
+/* Process page rows invert or normal code for flex direction on desktops */
+/* No changes on mobile, default column behavior */
+
+// Basically, this styling is for Edit.js file
+
+.normal-process-row {
+    @apply md:flex-row flex-col-reverse;
+}
+
+.inverted-process-row {
+    @apply md:flex-row-reverse flex-col-reverse;
+}
+
+.outer-process-row.normal-process-row .textleft {
+    @apply md:text-left text-center;
+}
+
+.outer-process-row.inverted-process-row .textright {
+    @apply md:text-right text-center;
+}
+
+/* Process page rows styling code */
+// Basically, this styling is for Save.js file
+
+.outer-process-row {
+    @apply flex justify-between p-4 mx-auto my-12 items-center md:mx-14 rounded-lg shadow-xl;
+
+
+    .left-section {
+        @apply w-full md:w-4/12 p-4;
+
+        .title-row {
+            @apply text-3xl font-bold tracking-tight text-gray-900;
+        }
+    }
+
+    .right-section {
+        @apply w-full md:w-8/12 relative;
+
+        .image {
+            @apply rounded-md shadow-lg object-cover md:object-cover w-full h-[60vh] md:h-[60vh];
+        }
+    }
+}
+
+// Home page about section styling, the about blocks on the home page block to be used only on home page
+// This is just for home and about intro block for ABOUT page is Different.
+.homeabout-textright {
+    @apply flex flex-col justify-around items-center md:flex-row;
+}
+
+.homeabout-textleft {
+    @apply flex flex-col justify-around items-center md:flex-row-reverse;
+}
+
+.homeabout-section {
+    h2.wp-block-heading {
+        @apply text-4xl text-white font-normal tracking-wide;
+    }
+
+    .one-side {
+        @apply md:w-[40%] rounded-md md:border-2 md:border-slate-100/20 mx-0 p-2 md:p-4 md:my-4;
+    }
+}
+
+
+/* Milestone items block styling code */
+
+.milestone-outer {
+    @apply flex flex-col md:flex-row items-start py-12 max-w-screen-xl mx-auto;
+
+    .ms-date {
+        @apply w-full md:w-2/12 text-center;
+    }
+
+    .right-section {
+        @apply relative p-4 md:p-0 w-full md:w-10/12 text-sm md:text-base;
+    }
+
+    .ms-info {
+        @apply md:rounded-md relative p-6 md:mr-6 md:ml-4 md:-mt-16 bg-black/60 text-white;
+    }
+
+    .ms-title {
+        @apply text-2xl pb-4;
+    }
+}
+
+// About page block styling code
+
+.sub-section p {
+    @apply text-xl;
+}
+
+.about-intro .ai-right .sub-section p {
+    @apply text-lg leading-8 tracking-wider;
+}
+
+
+// Home page intro block styling code
+
+.text-section-home-intro {
+    @apply absolute h-auto top-auto bottom-10 md:bottom-1/4 mx-auto max-w-screen-xl md:ml-6 px-4 sm:px-6 text-center md:text-left;
+}
+
+
+
+// Styling for Outline Button
+
+.outline-button-align {
+    &.left {
+        @apply text-left;
+    }
+
+    &.center {
+        @apply text-center;
+    }
+
+    &.right {
+        @apply text-right;
+    }
+}
+
+.outline-button-shade {
+    // Apply the class to the anchor tag inside outline button
+    // &:has(a) a  --- use this if the direct anchor is not working
+    a {
+        @apply inline-block text-base font-semibold leading-7 shadow-sm border-[2px] text-center cursor-pointer px-6 py-4;
+    }
+    // not has the anchor then apply the class to the outline-button-shade div/span
+    &:not(:has(a)) {
+        @apply inline-block text-base font-semibold leading-7 shadow-sm border-[2px] text-center cursor-pointer px-6 mt-12 py-4;
+    }
+
+
+    &.dark {
+        @apply text-gray-700 hover:text-black border-gray-700 hover:border-black;
+    }
+
+    &.light {
+        @apply text-slate-200 hover:text-white border-slate-200 hover:border-white;
+    }
+}
+
+
+
+// Home heading styling
+
+.home-heading {
+    &.left {
+        @apply text-left;
+    }
+
+    &.center {
+        @apply text-center;
+    }
+
+    &.right {
+        @apply text-right;
+    }
+}
+

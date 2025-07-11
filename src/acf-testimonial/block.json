@@ -1,0 +1,16 @@
+{
+    "name": "createacf-testimonial",
+    "title": "ACF Testimonial",
+    "description": "A custom testimonial block that uses ACF fields.",
+    "style": [ "file:./testimonial.css" ],
+    "category": "widgets",
+    "icon": "admin-comments",
+    "keywords": ["testimonial", "quote"],
+    "acf": {
+        "mode": "preview",
+        "renderTemplate": "testimonial.php"
+    },
+    "supports": {
+        "anchor": true
+    }
+}

@@ -1,0 +1,12 @@
+.gridcols1 {
+    @apply grid-cols-1 sm:grid-cols-1;
+}
+.gridcols2 {
+    @apply grid-cols-1 sm:grid-cols-2;
+}
+.gridcols3 {
+    @apply grid-cols-1 sm:grid-cols-3;
+}
+.gridcols4 {
+    @apply grid-cols-1 sm:grid-cols-4;
+}

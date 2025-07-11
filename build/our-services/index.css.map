@@ -1,0 +1,1 @@
+{"version":3,"file":"our-services/index.css","mappings":";;;AAEQ;IAAA;IAAA;IAAA;AAAA,C","sources":["webpack://blox-site/./src/our-services/editor.scss"],"sourcesContent":[".wp-block-create-block-our-services {\n    .block-editor-block-list__layout {\n        @apply grid grid-cols-3 gap-4;\n    }\n}"],"names":[],"sourceRoot":""}

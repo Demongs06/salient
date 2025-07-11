@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/cta-button",
+	"version": "0.1.0",
+	"title": "CTA Block Action Button",
+	"category": "widgets",
+	"icon": "button",
+	"description": "Action Button only for the CTA block. Add action or a in-site link for user action.",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "blox-site",
+	"editorScript": "file:./index.js",
+	"editorStyle": [ "file:../../block.css" ],
+	"style": [ "file:./style-index.css", "file:../../block.css" ],
+	"viewScript": "file:./view.js"
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "create-block/intro-dynamic",
+  "version": "0.1.0",
+  "title": "Dynamic Intro",
+  "category": "widgets",
+  "icon": "embed-photo",
+  "description": "Intro Block which is Dynamic Block.",
+  "example": {},
+  "supports": {
+    "html": false
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Default Title"
+    },
+    "subtitle": {
+      "type": "string",
+      "default": "Default Subtitle"
+    },
+    "id": {
+      "type": "number",
+      "default": 0
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "url": {
+      "type": "string",
+      "default": ""
+    }
+  },
+  "textdomain": "blox-site",
+  "editorScript": "file:./index.js",
+  "render": "file:./render.php",
+  "viewScript": "file:./view.js"
+}

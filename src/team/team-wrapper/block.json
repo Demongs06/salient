@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 2,
+	"name": "create-block/team-wrapper",
+	"title": "Team Wrapper",
+	"category": "design",
+	"icon": "groups",
+	"description": "Wrapper block for One, Two, and Three Team blocks in layout.",
+	"supports": {
+		"html": false,
+		"reusable": false
+	},
+
+	"attributes": {
+		"url1": { "type": "string" },
+		"id1": { "type": "number" },
+		"alt1": { "type": "string" },
+		"title1": { "type": "string" },
+		"info1": { "type": "string" },
+
+		"url2": { "type": "string" },
+		"id2": { "type": "number" },
+		"alt2": { "type": "string" },
+		"title2": { "type": "string" },
+		"info2": { "type": "string" },
+
+		"url3": { "type": "string" },
+		"id3": { "type": "number" },
+		"alt3": { "type": "string" },
+		"title3": { "type": "string" },
+		"info3": { "type": "string" },
+
+		"url4": { "type": "string" },
+		"id4": { "type": "number" },
+		"alt4": { "type": "string" },
+		"title4": { "type": "string" },
+		"info4": { "type": "string" },
+
+		"url5": { "type": "string" },
+		"id5": { "type": "number" },
+		"alt5": { "type": "string" },
+		"title5": { "type": "string" },
+		"info5": { "type": "string" }
+	},
+	"parent": ["create-block/team"],
+	"render": "file:./render.php",
+	"textdomain": "blox-site",
+	"editorScript": "file:./index.js",
+	"editorStyle": [ "file:../block.css", "file:./index.css" ],
+	"style": [ "file:./style-index.css", "file:../block.css" ],
+	"viewScript": "file:./view.js"
+}

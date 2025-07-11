@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "create-block/culture",
+	"version": "0.1.0",
+	"title": "Culture",
+	"category": "widgets",
+	"icon": "embed-photo",
+	"description": "FSPL offers these Sharepoint solutions, add in this block.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"innerBlocks": true
+	},
+	"attributes": {
+		"title": { "type": "string" }
+	},
+
+	"textdomain": "blox-site",
+	"editorScript": "file:./index.js",
+	"editorStyle": [ "file:../block.css", "file:./index.css" ],
+	"style": [ "file:./style-index.css", "file:../block.css" ],
+	"viewScript": "file:./view.js"
+}

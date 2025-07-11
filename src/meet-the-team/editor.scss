@@ -1,0 +1,21 @@
+
+
+[data-type="create-block/meet-the-team"] {
+    .block-editor-inner-blocks .block-editor-block-list__layout {
+        @apply flex flex-col md:flex-row gap-6;
+
+        p {
+            @apply m-0;
+        }
+    }
+
+    .meet-the-team-right-section .block-editor-inner-blocks .block-editor-block-list__layout{
+        @apply flex flex-col;
+    }
+}
+
+[data-type="create-block/meet-team-left-side"] {
+    .block-editor-inner-blocks .block-editor-block-list__layout {
+        @apply flex flex-col;
+    }
+}
