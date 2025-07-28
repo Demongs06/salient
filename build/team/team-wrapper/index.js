@@ -44,7 +44,7 @@ function TeamMember({
     [`${key}${prefix}`]: val
   });
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    className: "group relative w-full h-full overflow-hidden border-4 border-white transition-all duration-500 hover:border-8"
+    className: "group relative w-full h-full overflow-hidden border-4 border-white "
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "relative w-full aspect-square overflow-hidden"
   }, !url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
@@ -63,7 +63,7 @@ function TeamMember({
   }), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
     src: url,
     alt: alt || '',
-    className: "absolute inset-0 w-full h-full object-cover transition-transform duration-500 scale-125 group-hover:scale-150"
+    className: "absolute inset-0 w-full h-full object-cover"
   })), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "p-2 bg-white h-2/6"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {

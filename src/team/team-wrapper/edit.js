@@ -19,7 +19,7 @@ function TeamMember({ setAttributes, prefix, attributes }) {
 	const set = (key, val) => setAttributes({ [`${key}${prefix}`]: val });
 
 	return (
-		<div className="group relative w-full h-full overflow-hidden border-4 border-white transition-all duration-500 hover:border-8">
+		<div className="group relative w-full h-full overflow-hidden border-4 border-white ">
 			<div className="relative w-full aspect-square overflow-hidden">
 				{!url && (
 					<MediaPlaceholder
@@ -41,7 +41,7 @@ function TeamMember({ setAttributes, prefix, attributes }) {
 					<img
 						src={url}
 						alt={alt || ''}
-						className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 scale-125 group-hover:scale-150"
+						className="absolute inset-0 w-full h-full object-cover"
 					/>
 				)}
 			</div>

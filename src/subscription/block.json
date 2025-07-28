@@ -1,23 +1,21 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "create-block/grid-maker",
+	"name": "create-block/subscription",
 	"version": "0.1.0",
-	"title": "Grid Maker",
+	"title": "Culture",
 	"category": "widgets",
 	"icon": "embed-photo",
-	"description": "Grid maker block for the Meet the Team section.",
+	"description": "FSPL offers these Sharepoint solutions, add in this block.",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"innerBlocks": true
 	},
-	
 	"attributes": {
-		"columns": {
-			"type": "number",
-			"default": 2
-		}
+		"title": { "type": "string" }
 	},
+
 	"textdomain": "blox-site",
 	"editorScript": "file:./index.js",
 	"editorStyle": [ "file:../block.css", "file:./index.css" ],

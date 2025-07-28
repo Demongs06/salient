@@ -101,12 +101,6 @@ __webpack_require__.r(__webpack_exports__);
     recover: true
   },
   parent: ['create-block/meet-the-team-right-side'],
-  attributes: {
-    columns: {
-      type: 'number',
-      default: 2
-    }
-  },
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
@@ -224,7 +218,7 @@ module.exports = window["wp"]["i18n"];
   \************************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/grid-maker","version":"0.1.0","title":"Grid Maker","category":"widgets","icon":"embed-photo","description":"Grid maker block for the Meet the Team section.","example":{},"supports":{"html":false},"textdomain":"blox-site","editorScript":"file:./index.js","editorStyle":["file:../block.css","file:./index.css"],"style":["file:./style-index.css","file:../block.css"],"viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/grid-maker","version":"0.1.0","title":"Grid Maker","category":"widgets","icon":"embed-photo","description":"Grid maker block for the Meet the Team section.","example":{},"supports":{"html":false},"attributes":{"columns":{"type":"number","default":2}},"textdomain":"blox-site","editorScript":"file:./index.js","editorStyle":["file:../block.css","file:./index.css"],"style":["file:./style-index.css","file:../block.css"],"viewScript":"file:./view.js"}');
 
 /***/ })
 

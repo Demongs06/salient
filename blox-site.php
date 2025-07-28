@@ -22,7 +22,9 @@ if (!defined('ABSPATH')) {
 
 require_once __DIR__ . '/build/dyn-intro/render.php'; // Ensure render.php is loaded
 require_once __DIR__ . '/build/team/team-wrapper/render.php'; // Ensure render.php is loaded
+
 require_once __DIR__ . '/build/meet-the-team/right-side/grid-maker/team-member/render.php';
+//require_once __DIR__ . '/build/meet-the-team/right-side/grid-maker/render.php';
 require_once __DIR__ . '/build/meet-the-team/left-side/render.php';
 
 function blox_site_blox_site_block_init()

@@ -11,6 +11,12 @@
   "supports": {
     "html": false
   },
+  "attributes": {
+    "columns": {
+      "type": "number",
+      "default": 2
+    }
+  },
   "textdomain": "blox-site",
   "editorScript": "file:./index.js",
   "editorStyle": [
