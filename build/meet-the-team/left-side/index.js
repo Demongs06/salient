@@ -20,7 +20,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./editor.scss */ "./src/meet-the-team/left-side/editor.scss");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @wordpress/blob */ "@wordpress/blob");
+/* harmony import */ var _wordpress_blob__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _editor_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./editor.scss */ "./src/meet-the-team/left-side/editor.scss");
+
+
 
 
 
@@ -28,31 +34,166 @@ __webpack_require__.r(__webpack_exports__);
 
 function Edit({
   attributes,
-  setAttributes
+  setAttributes,
+  noticeOperations,
+  noticeUI
 }) {
   const {
-    title
+    title,
+    subtitle,
+    testimonial,
+    name,
+    position,
+    url,
+    alt,
+    id
   } = attributes;
-  const onChangeTitle = newTitle => {
+  const [blobURL, setBlobURL] = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useState)();
+
+  // Handlers
+  const onChangeTitle = newTitle => setAttributes({
+    title: newTitle
+  });
+  const onChangeSubtitle = newSubtitle => setAttributes({
+    subtitle: newSubtitle
+  });
+  const onChangeTestimonial = newTestimonial => setAttributes({
+    testimonial: newTestimonial
+  });
+  const onChangeName = newName => setAttributes({
+    name: newName
+  });
+  const onChangePosition = newPosition => setAttributes({
+    position: newPosition
+  });
+  const onSelectImage = image => {
+    if (!image || !image.url) {
+      setAttributes({
+        url: undefined,
+        id: undefined,
+        alt: ''
+      });
+      return;
+    }
     setAttributes({
-      title: newTitle
+      url: image.url,
+      id: image.id,
+      alt: image.alt
     });
   };
-  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  const onSelectURL = newURL => setAttributes({
+    url: newURL,
+    id: undefined,
+    alt: ''
+  });
+  const onUploadError = message => {
+    noticeOperations.removeAllNotices();
+    noticeOperations.createErrorNotice(message);
+  };
+  const removeImage = () => setAttributes({
+    url: undefined,
+    alt: '',
+    id: undefined
+  });
+  const onChangeAlt = newAlt => setAttributes({
+    alt: newAlt
+  });
+
+  // Cleanup blob URLs
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if (!id && (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url)) {
+      setAttributes({
+        url: undefined,
+        alt: ''
+      });
+    }
+  }, []);
+  (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_4__.useEffect)(() => {
+    if ((0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url)) {
+      setBlobURL(url);
+    } else {
+      (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.revokeBlobURL)(blobURL);
+      setBlobURL();
+    }
+  }, [url]);
+  return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: "Image Settings"
+  }, url && !(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
+    label: "Alt text",
+    value: alt,
+    onChange: onChangeAlt,
+    help: "Describes the image for accessibility and SEO."
+  }))), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.BlockControls, {
+    group: "inline"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaReplaceFlow, {
+    onSelect: onSelectImage,
+    onSelectURL: onSelectURL,
+    onError: onUploadError,
+    accept: "image/*",
+    allowedTypes: ['image'],
+    mediaId: id,
+    mediaURL: url
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.ToolbarButton, {
+    onClick: removeImage
+  }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Remove Image', 'blox-site'))), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     ...(0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)({
-      className: `meet-the-team-left-section w-full lg:w-1/3 space-y-6 lg:sticky self-start`
+      className: 'meet-the-team-left-section w-full lg:w-1/3 space-y-6 lg:sticky self-start'
     })
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
-    class: "w-full  space-y-6 lg:sticky lg:top-16 self-start",
+    className: "w-full space-y-6 lg:sticky lg:top-16 self-start",
     "data-aos": "fade-up",
     "data-aos-duration": "3000"
   }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
     className: "info text-left text-[18px] text-gray-800 mt-2 ff-re",
-    placeholder: "Title",
     tagName: "h2",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter title...', 'blox-site'),
     value: title,
     onChange: onChangeTitle
-  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InnerBlocks, null))));
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "md:text-lg lg:text-[11px] lg:leading-loose xl:text-[15px]",
+    tagName: "p",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter subtitle...', 'blox-site'),
+    value: subtitle,
+    onChange: onChangeSubtitle
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "space-y-6 md:px-14 lg:px-4 xl:px-8 xl:space-y-8"
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", {
+    className: "block w-px h-8 bg-black border-0 mx-auto my-4"
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "text-sm text-gray-500 font-medium",
+    tagName: "p",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter testimonial...', 'blox-site'),
+    value: testimonial,
+    onChange: onChangeTestimonial
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "flex items-center gap-4"
+  }, !url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.MediaPlaceholder, {
+    onSelect: onSelectImage,
+    onSelectURL: onSelectURL,
+    onError: onUploadError,
+    accept: "image/*",
+    allowedTypes: ['image'],
+    disableMediaButtons: url,
+    notices: noticeUI
+  }), url && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: `${(0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) ? ' is-loading' : ''}`
+  }, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("img", {
+    src: url,
+    alt: alt,
+    className: "w-16 h-16 rounded-full object-cover"
+  }), (0,_wordpress_blob__WEBPACK_IMPORTED_MODULE_5__.isBlobURL)(url) && (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.Spinner, null)), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "text-lg font-semibold md:text-base",
+    tagName: "h3",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter name...', 'blox-site'),
+    value: name,
+    onChange: onChangeName
+  }), (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.RichText, {
+    className: "text-sm text-gray-500 font-medium",
+    tagName: "p",
+    placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Enter position...', 'blox-site'),
+    value: position,
+    onChange: onChangePosition
+  })))))));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.withNotices)(Edit));
 
@@ -98,43 +239,7 @@ __webpack_require__.r(__webpack_exports__);
     recover: true
   },
   parent: ['create-block/meet-the-team'],
-  attributes: {
-    info: {
-      type: 'string',
-      selector: 'p.info',
-      source: 'html'
-    },
-    title: {
-      type: 'string',
-      selector: 'h2.title',
-      source: 'html'
-    }
-    // columns: {
-    // 	type: 'number',
-    // 	default: 1,
-    // },
-    // bgColor: {
-    //     type: 'string', 
-    // },
-    // alt: {
-    //     type: 'string',
-    //     source: 'attribute',
-    //     selector: 'img',
-    //     attribute: 'alt',
-    //     default: '',
-    // },
-    // url: {
-    //     type: 'string',
-    //     source: 'attribute',
-    //     selector: 'img',
-    //     attribute: 'src',
-    // },
-    // id: {
-    //     type: 'number',
-    // },
-  },
   edit: _edit__WEBPACK_IMPORTED_MODULE_2__["default"],
-  //save,
   save: () => null
 });
 
@@ -217,6 +322,16 @@ module.exports = window["React"];
 
 /***/ }),
 
+/***/ "@wordpress/blob":
+/*!******************************!*\
+  !*** external ["wp","blob"] ***!
+  \******************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["blob"];
+
+/***/ }),
+
 /***/ "@wordpress/block-editor":
 /*!*************************************!*\
   !*** external ["wp","blockEditor"] ***!
@@ -247,6 +362,16 @@ module.exports = window["wp"]["components"];
 
 /***/ }),
 
+/***/ "@wordpress/element":
+/*!*********************************!*\
+  !*** external ["wp","element"] ***!
+  \*********************************/
+/***/ ((module) => {
+
+module.exports = window["wp"]["element"];
+
+/***/ }),
+
 /***/ "@wordpress/i18n":
 /*!******************************!*\
   !*** external ["wp","i18n"] ***!
@@ -263,7 +388,7 @@ module.exports = window["wp"]["i18n"];
   \************************************************/
 /***/ ((module) => {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/meet-team-left-side","version":"0.1.0","title":"Meet Team Left","category":"widgets","icon":"embed-photo","description":"Meet the team left side block.","example":{},"supports":{"html":false},"textdomain":"blox-site","editorScript":"file:./index.js","render":"file:./render.php","editorStyle":["file:../block.css","file:./index.css"],"style":["file:./style-index.css","file:../block.css"],"viewScript":"file:./view.js"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"create-block/meet-team-left-side","version":"0.1.0","title":"Meet Team Left","category":"widgets","icon":"embed-photo","description":"Meet the team left side block.","example":{},"supports":{"html":false},"attributes":{"title":{"type":"string","default":""},"subtitle":{"type":"string","default":""},"testimonial":{"type":"string","default":""},"name":{"type":"string","default":""},"position":{"type":"string","default":""},"url":{"type":"string"},"alt":{"type":"string","default":""},"id":{"type":"number"}},"textdomain":"blox-site","editorScript":"file:./index.js","render":"file:./render.php","editorStyle":["file:../block.css","file:./index.css"],"style":["file:./style-index.css","file:../block.css"],"viewScript":"file:./view.js"}');
 
 /***/ })
 

@@ -26,35 +26,7 @@ registerBlockType(metadata.name, {
 		recover: true,
 	},
 	parent: [ 'create-block/grid-maker' ],
-	attributes: {
-		info: {
-			type: 'string',
-			selector: 'p.info',
-			source: 'html',
-		},
-		title: {
-			type: 'string',
-			selector: 'p.title',
-			source: 'html',
-		},
-		alt: {
-            type: 'string',
-            source: 'attribute',
-            selector: 'img',
-            attribute: 'alt',
-            default: '',
-        },
-        url: {
-            type: 'string',
-            source: 'attribute',
-            selector: 'img',
-            attribute: 'src',
-        },
-        id: {
-            type: 'number',
-        },
-	},
 	edit: Edit,
 
-	// save,
+	save: () => null,
 });

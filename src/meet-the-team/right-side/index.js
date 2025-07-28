@@ -35,6 +35,5 @@ registerBlockType(metadata.name, {
 	},
 	edit: Edit,
 
-	//save,
-	save: () => null,
+	save,
 });

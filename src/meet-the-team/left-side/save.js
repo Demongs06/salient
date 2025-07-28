@@ -3,8 +3,6 @@ import { useBlockProps, RichText, InnerBlocks } from '@wordpress/block-editor';
 export default function Save({ attributes }) {
     const { info, title, alt, url, id, columns } = attributes;
 
-
-    
     return (
         <>
             <div {...useBlockProps.save({

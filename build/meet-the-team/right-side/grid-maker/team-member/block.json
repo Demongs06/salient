@@ -11,6 +11,24 @@
   "supports": {
     "html": false
   },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "info": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string",
+      "default": ""
+    },
+    "url": {
+      "type": "string"
+    },
+    "id": {
+      "type": "number"
+    }
+  },
   "textdomain": "blox-site",
   "editorScript": "file:./index.js",
   "render": "file:./render.php",

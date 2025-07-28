@@ -11,7 +11,16 @@
 	"supports": {
 		"html": false
 	},
-	
+	"attributes": {
+		"title": { "type": "string", "default": "" },
+		"subtitle": { "type": "string", "default": "" },
+		"testimonial": { "type": "string", "default": "" },
+		"name": { "type": "string", "default": "" },
+		"position": { "type": "string", "default": "" },
+		"url": { "type": "string" },
+		"alt": { "type": "string", "default": "" },
+		"id": { "type": "number" }
+	},
 	"textdomain": "blox-site",
 	"editorScript": "file:./index.js",
 	"render": "file:./render.php",

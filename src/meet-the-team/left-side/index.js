@@ -26,43 +26,8 @@ registerBlockType(metadata.name, {
 		recover: true,
 	},
 	parent: [ 'create-block/meet-the-team' ],
-	attributes: {
-		info: {
-			type: 'string',
-			selector: 'p.info',
-			source: 'html',
-		},
-		title: {
-			type: 'string',
-			selector: 'h2.title',
-			source: 'html',
-		},
-		// columns: {
-		// 	type: 'number',
-		// 	default: 1,
-		// },
-		// bgColor: {
-        //     type: 'string', 
-        // },
-		// alt: {
-        //     type: 'string',
-        //     source: 'attribute',
-        //     selector: 'img',
-        //     attribute: 'alt',
-        //     default: '',
-        // },
-        // url: {
-        //     type: 'string',
-        //     source: 'attribute',
-        //     selector: 'img',
-        //     attribute: 'src',
-        // },
-        // id: {
-        //     type: 'number',
-        // },
-	},
+	
 	edit: Edit,
 
-	//save,
 	save: () => null,
 });
